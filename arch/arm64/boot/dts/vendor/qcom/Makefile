@@ -13,8 +13,10 @@ ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
                 kona-xrfusion-ult-overlay.dtbo \
                 kona-arglass-overlay.dtbo \
                 kona-xrsku4-overlay.dtbo \
-                kona-hdk-overlay.dtbo
+                kona-hdk-overlay.dtbo \
+                umi-sm8250-overlay.dtbo
 
+umi-sm8250-overlay.dtbo-base := kona.dtb kona-v2.dtb kona-v2.1.dtb
 kona-cdp-overlay.dtbo-base := kona.dtb kona-v2.dtb kona-v2.1.dtb
 kona-cdp-lcd-overlay.dtbo-base := kona.dtb kona-v2.dtb kona-v2.1.dtb
 kona-cdp-lcd-tron-overlay.dtbo-base := kona.dtb kona-v2.dtb kona-v2.1.dtb
