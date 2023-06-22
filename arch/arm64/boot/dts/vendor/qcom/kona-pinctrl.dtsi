@@ -414,6 +414,49 @@
 			};
 		};
 
+				/* AW8697_RESET_N */
+		aw8697_gpio_reset: aw8697_gpio_reset {
+			mux {
+				 pins = "gpio130";
+				 function = "gpio";
+			};
+
+			config {
+				pins = "gpio130";
+				drive-strength = <2>;
+				bias-disable;
+				output-low;
+			};
+		};
+		/* AW8697_RESET_N, state device active*/
+		aw8697_gpio_reset_output_high: aw8697_gpio_reset_output_high {
+			mux {
+				pins = "gpio130";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio130";
+				drive-strength = <2>;
+				bias-disable;
+				output-high;
+			};
+		};
+		/* AW8697_INTERRUPT_N */
+		aw8697_gpio_int: aw8697_gpio_int {
+			mux {
+				 pins = "gpio129";
+				 function = "gpio";
+			};
+
+			config {
+				pins = "gpio129";
+				drive-strength = <2>;
+				bias-pull-up;
+				input-enable;
+			};
+		};
+
 		pmx_ts_active {
 			ts_active: ts_active {
 					mux {
