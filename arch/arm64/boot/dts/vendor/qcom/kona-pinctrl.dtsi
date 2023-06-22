@@ -2086,6 +2086,32 @@
 			};
 		};
 
+		cs35l41_int_speaker: cs35l41_int_speaker {
+			mux {
+				pins = "gpio113";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio113";
+				bias-pull-up;
+				drive-strength = <8>;
+				input-enable;
+			};
+		};
+
+		cs35l41_int_speaker_rcv: cs35l41_int_speaker_rcv {
+			mux {
+				pins = "gpio112";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio112";
+				bias-pull-up;
+				drive-strength = <8>;
+				input-enable;
+			};
+		};
+
 		tert_mi2s_sck {
 			tert_mi2s_sck_sleep: tert_mi2s_sck_sleep {
 				mux {
