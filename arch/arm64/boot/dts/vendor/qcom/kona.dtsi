@@ -3484,7 +3484,7 @@
 		qcom,spss-debug-reg-addr = <0x01886020>;
 		qcom,spss-emul-type-reg-addr = <0x01fc8004>;
 		pil-mem = <&pil_spss_mem>;
-		qcom,pil-addr = <0x8BE00000>; // backward compatible
+		qcom,pil-addr = <0x8e000000>; // backward compatible
 		qcom,pil-size = <0x0F0000>; // padding to 960 KB
 		status = "ok";
 	};
