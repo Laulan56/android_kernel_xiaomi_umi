@@ -614,6 +614,10 @@
 	thermal_zones: thermal-zones {
 	};
 
+	maxim_ds28e16: maxim_ds28e16 {
+	};
+
+
 	slim_aud: slim@3ac0000 {
 		cell-index = <1>;
 		compatible = "qcom,slim-ngd";
