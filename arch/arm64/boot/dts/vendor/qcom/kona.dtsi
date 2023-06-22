@@ -1390,6 +1390,11 @@
 			compatible = "qcom,msm-imem-diag-dload";
 			reg = <0xc8 0xc8>;
 		};
+
+		display_config_offset@ba4 {
+			compatible = "qcom,msm-imem-display_config_offset";
+			reg = <0xba4 0x10>;
+		};
 	};
 
 	restart@c264000 {
