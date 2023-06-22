@@ -41,6 +41,20 @@
 			output-high;
 		};
 	};
+
+	display_panel_vci_default: display_panel_vci_default {
+		mux {
+			pins = "gpio71";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio71";
+			drive-strength = <8>;
+			bias-disable = <0>;
+			output-high;
+		};
+	};
 };
 
 &soc {
@@ -154,6 +168,37 @@
 		};
 	};
 
+	dsi_panel_pwr_supply_vci: dsi_panel_pwr_supply_vci {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+		qcom,panel-supply-entry@0 {
+			reg = <0>;
+			qcom,supply-name = "vddio";
+			qcom,supply-min-voltage = <1800000>;
+			qcom,supply-max-voltage = <1800000>;
+			qcom,supply-enable-load = <62000>;
+			qcom,supply-disable-load = <80>;
+			qcom,supply-pre-on-sleep = <0>;
+			qcom,supply-pre-off-sleep = <0>;
+			qcom,supply-post-on-sleep = <3>;
+			qcom,supply-post-off-sleep = <0>;
+		};
+
+		qcom,panel-supply-entry@1 {
+			reg = <1>;
+			qcom,supply-name = "vci";
+			qcom,supply-min-voltage = <3000000>;
+			qcom,supply-max-voltage = <3000000>;
+			qcom,supply-enable-load = <100000>;
+			qcom,supply-disable-load = <100>;
+			qcom,supply-pre-on-sleep = <0>;
+			qcom,supply-pre-off-sleep = <0>;
+			qcom,supply-post-on-sleep = <10>;
+			qcom,supply-post-off-sleep = <0>;
+		};
+	};
+
 	display_panel_avdd: display_gpio_regulator@1 {
 		compatible = "regulator-fixed";
 		regulator-name = "display_panel_avdd";
@@ -165,6 +210,19 @@
 		regulator-boot-on;
 		pinctrl-names = "default";
 		pinctrl-0 = <&display_panel_avdd_default>;
+	};
+	
+	display_panel_vci: display_gpio_regulator_vci {
+		compatible = "regulator-fixed";
+		regulator-name = "display_panel_vci";
+		regulator-min-microvolt = <3000000>;
+		regulator-max-microvolt = <3000000>;
+		regulator-enable-ramp-delay = <233>;
+		gpio = <&tlmm 71 0>;
+		enable-active-high;
+		regulator-boot-on;
+		pinctrl-names = "default";
+		pinctrl-0 = <&display_panel_vci_default>;
 	};
 
 	sde_dsi: qcom,dsi-display-primary {
@@ -216,6 +274,7 @@
 		vddio-supply = <&pm8150_l14>;
 		vdd-supply = <&pm8150a_l11>;
 		avdd-supply = <&display_panel_avdd>;
+		vci-supply = <&display_panel_vci>;
 		lab-supply = <&ab_vreg>;
 		ibb-supply = <&ibb_vreg>;
 
